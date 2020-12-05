@@ -58,7 +58,7 @@ in either the prompt or navbar.
 
 - Create a new environment from the yml file using the following command
 
-    `conda env create -f environment.yml`
+    `conda env create -f freeze.yml`
     
 - Activate the environment
 
