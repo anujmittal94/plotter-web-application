@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Tables and Plots</h1>
+    <p>
+      Tabulating and graphing data is something we all have done at aome point,
+      so why not skip some of the steps, and do it online. This website is a
+      simple tool designed that allows you to upload files, and tabulate and plot
+      the data within. All the files are connected to your account, and you access
+      them at any time.
+    </p>
+    <p>
+      <a href="{{ url_for('login') }}" class="btn btn-primary">Click to Login!</a><br>
+      New User? <a href="{{ url_for('register') }}">Click to Register!</a>
+    </p>
+{% endblock %}

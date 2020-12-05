@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Uploads</h1>
+<table class="table table-striped table-dark">
+  {% for filename in filenames %}
+  <tr>
+    <td>{{ filename }}</td>
+    <form class="" action="/analysis" method="post">
+      <input type="hidden" name="filename" value={{filename}}>
+      <td><input type="submit" value="Analyse" class="btn btn-primary"></td>
+    </form>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

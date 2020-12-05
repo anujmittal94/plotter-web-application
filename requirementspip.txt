@@ -1,0 +1,6 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: win-64
+pyqt5-sip=4.19.18=pypi_0
+pyqtchart=5.12=pypi_0
+pyqtwebengine=5.12.1=pypi_0

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Scatter Plot</h1>
+<h2> Line Coefficients : {{coeff}}</h2>
+<img src="data:image/png;base64, {{ plot_url }}">
+
+{% endblock %}

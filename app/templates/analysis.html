@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Analysis</h1>
+<table class="table table-striped table-dark">
+  <thead>
+  {% for field in fields %}
+    <th>{{ field }}</th>
+  {% endfor %}
+  </thead>
+  {% if rows|length < 5 %}
+    {% for row in rows %}
+      <tr>
+      {% for value in row %}
+        <td>{{ value }}</td>
+      {%endfor%}
+      </tr>
+    {% endfor %}
+  {% else %}
+    {% for rownum in range(5) %}
+      <tr>
+      {% for value in rows[rownum] %}
+        <td>{{ value }}</td>
+      {%endfor%}
+      </tr>
+    {% endfor %}
+  {% endif %}
+</table>
+
+<table class="table table-striped table-dark">
+
+  <thead>
+    <th>Operations</th>
+  </thead>
+
+  <tr>
+    <form class="" action="/table" method="post" target="_blank">
+      <input type="hidden" name="filename" value={{filename}}>
+      <td colspan="3"><input type="submit" value="Tabulate" class="btn btn-primary"></td>
+    </form>
+  </tr>
+
+  <tr>
+    <form class="" action="/scatter" method="post" target="_blank">
+      <input type="hidden" name="filename" value={{filename}}>
+      <td>
+        <input type="submit" value="Scatter Plot" class="btn btn-primary">
+        <button type="button" class="btn btn-secondary" onclick="scatter_advanced_row()">Advanced</button>
+      </td>
+    <td>
+      <select required class="form-control" name="selcolx">
+        <option value="" disabled selected hidden>X Values</option>
+        {% for colnum in range(fields|length) %}
+        <option value={{colnum}}>{{ fields[colnum] }}</option>
+        {% endfor %}
+      </select>
+    </td>
+    <td>
+      <select required class="form-control" name="selcoly">
+        <option value="" disabled selected hidden>Y Values</option>
+        {% for colnum in range(fields|length) %}
+        <option value={{colnum}}>{{ fields[colnum] }}</option>
+        {% endfor %}
+      </select>
+    </td>
+  </tr>
+
+  <tr id="scatter_advanced_row" hidden>
+    <td>
+      Fitting
+    </td>
+    <td colspan="2">
+      <select required class="form-control" name="selfit">
+        <option value="nofit" selected>No Fitting</option>
+        <option value="lin">Linear Fit</option>
+        <option value="quad">Quadratic Fit</option>
+      </select>
+    </td>
+    </form>
+  </tr>
+  <tr>
+    <form class="" action="/bar" method="post" target="_blank">
+      <input type="hidden" name="filename" value={{filename}}>
+      <td><input type="submit" value="Bar Plot" class="btn btn-primary"></td>
+    <td>
+      <select required class="form-control" name="selcolx">
+        <option value="" disabled selected hidden>Bar Labels</option>
+        {% for colnum in range(fields|length) %}
+        <option value={{colnum}}>{{ fields[colnum] }}</option>
+        {% endfor %}
+      </select>
+    </td>
+    <td>
+      <select required class="form-control" name="selcoly">
+        <option value="" disabled selected hidden>Bar Heights</option>
+        {% for colnum in range(fields|length) %}
+        <option value={{colnum}}>{{ fields[colnum] }}</option>
+        {% endfor %}
+      </select>
+    </td>
+    </form>
+  </tr>
+
+</table>
+<script type="text/javascript">
+  function scatter_advanced_row()
+  {
+    let row = document.getElementById('scatter_advanced_row')
+    row.removeAttribute('hidden')
+  }
+</script>
+{% endblock %}

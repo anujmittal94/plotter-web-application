@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1>Upload/Update</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+        {{ form.file }}
+        {{ form.submit(class="btn btn-primary") }}<br><br>
+        <h2>Rules</h2>
+        <ul>
+          <li>At the moment, only CSV files are accepted.</li>
+          <li>The first line is assumed to be column names.</li>
+          <li>Any files with the same name will be replaced.</li>
+          <li>The maximum upload size is 1MB.</li>
+        </ul>
+        {% for error in form.file.errors %}
+        <hr>
+        <span style="color: red;">[{{ error}}]</span>
+        {% endfor %}
+  </form>
+{% endblock %}
