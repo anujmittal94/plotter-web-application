@@ -56,7 +56,7 @@ in either the prompt or navbar.
 
 ### If Using Conda
 
-- Create a new environment from the yml file using the following command
+- Create a new environment with the required packages from the yml file using the following command
 
     `conda env create -f freeze.yml`
     
