@@ -50,6 +50,30 @@ in either the prompt or navbar.
 - More data analysis tools can be added.
 - Design is not suitable for deployment; It needs a complete overhaul.
 
+## Launching the application
+
+ Clone the code or download, navigate to the folder in your prompt
+
+### If Using Conda
+
+- Create a new environment from the yml file using the following command
+
+    `conda env create -f environment.yml`
+    
+- Activate the environment
+
+    `conda activate cs50finaltabulationandplotterapp`
+    
+- The app can now be freely run and accessed at http://localhost:5000/
+
+    `flask run`
+    
+### Otherwise
+
+- will be updated in the future, but the requirements conda file should work with pip as well, install dependencies in both requirements files.
+
+
+
 
 
 
