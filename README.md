@@ -1,4 +1,5 @@
-# CS50-Final-Project: Data Tabulation and Plotter Web Application
+# Data Tabulation and Plotter Web Application
+## Capstone project for CS50 2020 (MOOC)
 
 This project is a web application designed for data viewing. You are able to upload files onto your user account
 and then able to access this data in the form of a table or graph. The reason I chose such a project is
